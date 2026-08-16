@@ -2,8 +2,8 @@ name: mini-jame-271_whimsy
 run-name: ${{github.actor}} is running the main workflow.
 on:
   push:
-    # tags:
-    #   - "v*.*.*"
+    tags:
+      - "v*.*.*"
 
 permissions:
   contents: write
