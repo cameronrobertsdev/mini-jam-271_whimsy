@@ -1,6 +1,13 @@
 name: mini-jame-271_whimsy
 run-name: ${{github.actor}} is running the main workflow.
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+      
 jobs:
   build-game:
     runs-on: ubuntu-latest
@@ -14,4 +21,12 @@ jobs:
       - name: Setup project
         run: emcmake cmake -B build -S .
       - name: Build Project
-        run: cmake --build build   
+        run: cmake --build build
+      - name: Zip up contents
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -r game.zip build/src
+      - name: Release Game
+        uses: softprops/action-gh-release@v3
+        with:
+          files: game.zip
