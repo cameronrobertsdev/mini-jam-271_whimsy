@@ -1,6 +1,6 @@
 add_executable(App)
 
 target_sources(App
-    PRIVATE
+    PUBLIC
         App.cpp  
 )
