@@ -1,4 +1,4 @@
-add_executeable(App)
+add_executable(App)
 
 target_sources(App
     PRIVATE

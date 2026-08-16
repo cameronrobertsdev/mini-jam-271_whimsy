@@ -8,3 +8,4 @@ include/
 *.exe
 .CMakeUserPresets.json
 cmaketoolchains/
+emsdk/
