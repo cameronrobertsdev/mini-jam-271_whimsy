@@ -1,0 +1,17 @@
+name: mini-jame-271_whimsy
+run-name: ${{github.actor}} is running the main workflow.
+on: [push]
+jobs:
+  build-game:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7
+      - name: Get emsdk
+        uses: emscripten-core/setup-emsdk@v15
+      - name: Get CMake
+        uses: lukka/get-cmake@latest
+      - name: Setup project
+        run: emcmake cmake -B build -S .
+      - name: Build Project
+        run: cmake --build build   
