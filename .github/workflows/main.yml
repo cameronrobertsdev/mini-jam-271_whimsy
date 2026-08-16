@@ -33,8 +33,11 @@ jobs:
         uses: montudor/action-zip@v1
 
       - name: Zip up game folder
-        run: zip game.zip src
-        working-directory: ./build
+        run: |
+          dir
+          cd build
+          cd src
+          zip -r game.zip .
 
       - name: Release Game
         uses: softprops/action-gh-release@v3
