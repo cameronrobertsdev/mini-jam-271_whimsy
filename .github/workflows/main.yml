@@ -17,6 +17,9 @@ jobs:
 
       - name: Get emsdk
         uses: emscripten-core/setup-emsdk@v15
+        with:
+          version: 6.0.6
+          actions-cache-folder: 'emsdk-cache'
 
       - name: Get CMake
         uses: lukka/get-cmake@latest
@@ -30,8 +33,8 @@ jobs:
         uses: montudor/action-zip@v1
 
       - name: Zip up game folder
-        run: zip -r game.zip src
-        working-directory: ./build/
+        run: zip game.zip src
+        working-directory: ./build
 
       - name: Release Game
         uses: softprops/action-gh-release@v3
