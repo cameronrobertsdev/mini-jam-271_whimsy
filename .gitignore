@@ -6,3 +6,5 @@ include/
 *.o
 *.dat
 *.exe
+.CMakeUserPresets.json
+cmaketoolchains/
