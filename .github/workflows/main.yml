@@ -2,8 +2,8 @@ name: mini-jame-271_whimsy
 run-name: ${{github.actor}} is running the main workflow.
 on:
   push:
-    tags:
-      - "v*.*.*"
+    # tags:
+    #   - "v*.*.*"
 
 permissions:
   contents: write
@@ -33,13 +33,10 @@ jobs:
         uses: montudor/action-zip@v1
 
       - name: Zip up game folder
-        run: |
-          dir
-          cd build
-          cd src
-          zip -r game.zip .
+        run: zip -r game.zip .
+        working-directory: build/src
 
       - name: Release Game
         uses: softprops/action-gh-release@v3
         with:
-          files: game.zip
+          files: build/src/game.zip
