@@ -14,18 +14,25 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v7
+
       - name: Get emsdk
         uses: emscripten-core/setup-emsdk@v15
+
       - name: Get CMake
         uses: lukka/get-cmake@latest
+
       - name: Setup project
         run: emcmake cmake -B build -S .
       - name: Build Project
         run: cmake --build build
-      - name: Zip up contents
+
+      - name: Install Zip
         uses: montudor/action-zip@v1
-        with:
-          args: zip -r game.zip build/src
+
+      - name: Zip up game folder
+        run: zip -r game.zip src
+        working-directory: ./build/
+
       - name: Release Game
         uses: softprops/action-gh-release@v3
         with:
