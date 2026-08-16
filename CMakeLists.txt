@@ -15,5 +15,5 @@ add_subdirectory(include)
 
 add_subdirectory(src)
 
-target_link_libraries(App raylib)
+target_link_libraries(index raylib)
 

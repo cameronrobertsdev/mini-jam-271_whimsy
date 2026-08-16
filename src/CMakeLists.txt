@@ -1,6 +1,6 @@
-add_executable(App)
+add_executable(index)
 
-target_sources(App
+target_sources(index
     PUBLIC
         App.cpp  
 )
