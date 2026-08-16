@@ -1,0 +1,8 @@
+.vscode/
+.vs/
+build/
+include/
+.cache/
+*.o
+*.dat
+*.exe
